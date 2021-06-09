@@ -3,10 +3,14 @@ package com.drbs.starbuzz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DrinkActivity extends AppCompatActivity {
 
@@ -23,6 +27,16 @@ public class DrinkActivity extends AppCompatActivity {
         // Get the drink from the intent
         int drinkId = (Integer) getIntent().getExtras().get(EXTRA_DRINKID);
         Drink drink = Drink.drinks[drinkId];
+
+//        // Create a cursor
+//        SQLiteOpenHelper starbuzzDatabaseHelper = new StarbuzzDatabaseHelper(this);
+//        try {
+//            SQLiteDatabase db = starbuzzDatabaseHelper.getReadableDatabase();
+////            Cursor cursor
+//        } catch (SQLiteException e) {
+//            Toast toast = Toast.makeText(this,"Database unavailable", Toast.LENGTH_SHORT);
+//            toast.show();
+//        }
 
         // Populate the drink name
         TextView name = (TextView) findViewById(R.id.name);
